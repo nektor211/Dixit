@@ -19,7 +19,7 @@ export default class NavBar extends Component {
         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
           <div className="navbar-header d-flex justify-content-center h-100">
             <NavLink className="nav-link" activeClassName="active" to="/">
-              <img className="navbar-brand" src="http://assets.asmodee.ca/fichiers/Libellud/Dixit/1.Dixit%20-%20Base/Dixit-title.png"/>
+              <img className="navbar-brand" src="http://cat.molin.tech:5000/Dixit-title.png"/>
             </NavLink>
           </div>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">

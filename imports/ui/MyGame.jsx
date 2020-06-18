@@ -62,7 +62,7 @@ class MyGame extends Component {
         return;
       }
       if (cur != prev && this.state.timeId === "") {
-        let timeId = setTimeout(this.autoSelect, 20000);
+        let timeId = setTimeout(this.autoSelect, 600000000);
         this.setState({
           timeId:timeId
         });
@@ -96,8 +96,9 @@ class MyGame extends Component {
   }
 
   autoSelect() {
+    console.log("AutoSelect", (new Date()).toString());
     if (this.state.stage === 1) {
-      // alert("Timeout! System has selected a card and description for you!");
+      alert("Timeout! System has selected a card and description for you!");
       this.setState({
         description : "Story Teller fell asleep, try your best to guess!",
         selectedCard:this.state.cardsOnHand[0],
@@ -107,7 +108,7 @@ class MyGame extends Component {
       describe.click();
     }
     if (this.state.stage === 2) {
-      // alert("Timeout! System has selected a card for you!");
+      alert("Timeout! System has selected a card for you!");
       this.setState({
         selectedCard:this.state.cardsOnHand[0],
         timeId:""
@@ -116,7 +117,7 @@ class MyGame extends Component {
       pick.click();
     }
     if (this.state.stage === 3) {
-      // alert("Timeout! System has voted a card for you!");
+      alert("Timeout! System has voted a card for you!");
       this.setState({
         selectedCard:this.state.cardsOnDesk[0],
         timeId:""
@@ -126,7 +127,7 @@ class MyGame extends Component {
     }
 
     if (this.state.stage === 4) {
-      // alert("Timeout! Next round.");
+      alert("Timeout! Next round.");
       this.setState({
         timeId:""
       });
@@ -187,6 +188,7 @@ class MyGame extends Component {
   }
 
   updateGame() {
+    // console.log("myGame:", this.props.myGame);
     this.props.myGame.map(game => {
       this.setState({
         gameName: game.name,
@@ -419,6 +421,7 @@ class MyGame extends Component {
     console.log("Timeout called after three seconds...");
   }, 3000);*/
   render() {
+    // console.log("state", this.state);
     // console.log("TEST: props.myGame.length:", this.props.myGame.length);
     // console.log("TEST: state.gameName: ", this.state.gameName);
     // console.log("TEST: state.stage: ", this.state.stage);

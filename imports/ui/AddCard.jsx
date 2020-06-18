@@ -34,13 +34,17 @@ export class AddCard extends Component {
 
   onSubmit() {
     let url= this.state.newUrl;
-    Meteor.call("cards.insert",url, (err, res) => {
-      if (err) {
-        alert("There was error updating check the console");
-        console.log(err);
-      }
-      console.log("succeed",res);
-    });
+    for (let i=1; i<=450; i++) {
+      url = "http://cat.molin.tech:5000/" + i + ".jpg";
+      Meteor.call("cards.insert",url, (err, res) => {
+        if (err) {
+          alert("There was error updating check the console");
+          console.log(err);
+        }
+        console.log("succeed",res);
+      });
+    }
+    
     this.setState({
       newUrl:""
     });
@@ -49,13 +53,14 @@ export class AddCard extends Component {
 
   render() {
     console.log(this.state.cards);
+    console.log(Meteor.userId());
     return (
       <div className="container">
         <div className="container">
           <div className="row">
             <div id="magic-button">
               <br/>
-              {Meteor.userId() == "DcRzfYmuDNyQrT3q4" ?<button type="button" className= "btn btn-danger my-2 my-sm-0 " data-toggle="modal" data-target="#myModal">Add Card</button>:null}
+              {Meteor.userId()/* == "hNaqx68FTGr5Gz3qp"*/ ?<button type="button" className= "btn btn-danger my-2 my-sm-0 " data-toggle="modal" data-target="#myModal">Add Card</button>:null}
             </div>
             <div id="myModal" className="modal fade" role="dialog">
               <div className="modal-dialog">
