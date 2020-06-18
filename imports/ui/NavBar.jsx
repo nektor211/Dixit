@@ -30,22 +30,22 @@ export default class NavBar extends Component {
               {Meteor.user() ? <div className="nav-item btn dropdown"><span className="dropbtn"><i className="fas fa-user"></i><span className="user"> 
                 {Meteor.user().username? Meteor.user().username : <span> {Meteor.user().services ? <span>{Meteor.user().services.twitter ? Meteor.user().services.twitter.screenName : ""}</span>:""}</span>}</span></span>
               <div className="dropdown-content">
-                <NavLink className="nav-link" activeClassName="active" to="/Collection">My Collection</NavLink>
-                <NavLink className="nav-link" activeClassName="active" to="/" onClick={this.logoutOnClick.bind(this)}>Log Out</NavLink>
+                <NavLink className="nav-link" activeClassName="active" to="/Collection">我的卡牌</NavLink>
+                <NavLink className="nav-link" activeClassName="active" to="/" onClick={this.logoutOnClick.bind(this)}>登出</NavLink>
               </div>
               </div> :
                 <div className="nav-item">
-                  <NavLink className="nav-link" activeClassName="active" to="/Login">Sign in</NavLink>
+                  <NavLink className="nav-link" activeClassName="active" to="/Login">登录</NavLink>
                 </div>
               }
             </div>
             <ul className="navbar-nav ml-auto navbar-expand-lg ">
               {Meteor.user() ?<li className="nav-item">
-                <NavLink className="nav-link" activeClassName="active" to="/gameroom">Game Room</NavLink>
+                <NavLink className="nav-link" activeClassName="active" to="/gameroom">游戏大厅</NavLink>
               </li> :null}
               {Meteor.user() ?
                 <li className="nav-item">
-                  <NavLink className="nav-link" activeClassName="active" to="/About">Game Rules</NavLink>
+                  <NavLink className="nav-link" activeClassName="active" to="/About">游戏规则</NavLink>
                 </li>: null}
             </ul>
           </div>

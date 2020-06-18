@@ -484,7 +484,7 @@ class MyGame extends Component {
     // </div>
     const pickCard = 
     (<div id="chooseCard"> 
-      <span> You've chosen: 
+      <span> 你已经选择了: 
         {this.state.selectedCard === null ? null : (
           <span
             className="card col-xs-2 col-s-3"
@@ -504,18 +504,18 @@ class MyGame extends Component {
       <div className="container">
         <div className="row">
           <div className="d-none d-sm-block col-sm-2" id="scoreBoard">
-            <h2 className="row"> GameRoom </h2>
-            <p> NAME: <br/><span className="boardInfo">{this.state.gameName}</span></p>
-            <p> ROUND: <span className="boardInfo">{this.state.hostIdx + 1}</span></p>
-            <p> STORY TELLER:<br/><span className="boardInfo">{this.state.players[this.state.hostIdx]}</span></p>
-            <h2 className="row"> ScoreBoard </h2>
+            <h2 className="row"> 游戏房间 </h2>
+            <p> 房间名: <br/><span className="boardInfo">{this.state.gameName}</span></p>
+            <p> 回合: <span className="boardInfo">{this.state.hostIdx + 1}</span></p>
+            <p> 讲述人:<br/><span className="boardInfo">{this.state.players[this.state.hostIdx]}</span></p>
+            <h2 className="row"> 积分板 </h2>
             <div>
               {this.props.gameData.map(game => (
                 <div key = {game._id}>{game.username} : <span className="boardInfo">{game.tempPoints}</span></div>
               ))}
             </div><br/>
 
-            <h2 className="row"> Collected: </h2>
+            <h2 className="row"> 搜集卡牌: </h2>
             <div>
               {this.props.gameData.map(data => (
                 <div key = {data._id}>
@@ -534,20 +534,20 @@ class MyGame extends Component {
             <div className="pool">
               {this.state.stage == 5? null: <h2 className="row"> Pool </h2>}
               {this.state.stage > 1 && this.state.stage < 5 ?
-                <div><h4 id="displayDescrition">Story teller description: <span className="gameInfo">{this.state.hostDescription}</span></h4></div> 
+                <div><h4 id="displayDescrition">讲述人对其卡牌的描述为: <span className="gameInfo">{this.state.hostDescription}</span></h4></div> 
                 : 
                 null
               }
               {this.state.stage == 0? <div> {this.state.readyCount==0? <div className="row">
                 <h4>
                   <span id="badge" className="badge badge-pill badge-warning m-2">
-                    Click the Ready Button to start game!
+                    点击准备按钮开始游戏!
                   </span>
                 </h4>
               </div> : <div className="row">
                 <h4>
                   <span id="badge" className="badge badge-pill badge-warning m-2">
-                    Waiting for other players to Start!
+                    等待其他人开始游戏!
                   </span>
                 </h4>
               </div>} 
@@ -558,7 +558,7 @@ class MyGame extends Component {
                     <div className="row">
                       <h4>
                         <span id="badge" className="badge badge-pill badge-warning m-2">
-                          Waiting for other players to Pick!
+                          等待其他玩家选择卡牌!
                         </span>
                       </h4>
                     </div>
@@ -569,19 +569,19 @@ class MyGame extends Component {
                     this.state.stage === 5 ? 
                       <div id="gameOver" className = "text-center">
                         <div className = "text-center" >
-                          <br/><br/><h1>GAME OVER!</h1>
-                          <h6>Click "Exit" to go back to Game Lobby</h6><br/><br/>
+                          <br/><br/><h1>游戏结束!</h1>
+                          <h6>点击 "退出" 返回游戏大厅</h6><br/><br/>
                         </div>
                         <div className="row">
                           <div className="col-6">
-                            <h4> Players ScoreBoard:</h4>
+                            <h4> 玩家积分板:</h4>
                             {this.props.gameData.map(game => (
                               <div key = {game._id}>{game.username} : <span className="boardInfo">{game.tempPoints}</span></div>
                             ))}
                             <br/>
                           </div>
                           <div className="col-6">
-                            <h4> Cards you've winned in this game:</h4>
+                            <h4> 你在本次游戏中赢得的搜集卡牌:</h4>
                             <div>{this.props.gameData.map(data => (
                               <div key = {data._id}>
                                 {data._id === Meteor.userId()? <div className="row cards">{
@@ -603,7 +603,7 @@ class MyGame extends Component {
                   {this.state.stage === 4?
                     <div className = "row">
                       <div className = "col-2"></div>
-                      <div className = "col-4"><h4>Answer:</h4>
+                      <div className = "col-4"><h4>答案是:</h4>
                         {this.props.myGame.map(game => (
                           <div key = {game._id}
                             className="card col-xs-4 col-s-3"
@@ -611,7 +611,7 @@ class MyGame extends Component {
                               backgroundImage: `url(${game.targetCard.url})`,
                               backgroundSize: "cover"
                             }}></div>))}<br/></div>
-                      <div className = "col-6"><h4>Winners:</h4>
+                      <div className = "col-6"><h4>胜利者是:</h4>
                         {this.props.myGame.map(game => (
                           <div key = {game._id}
                             className="col-xs-4 col-s-3 winners">
@@ -626,7 +626,7 @@ class MyGame extends Component {
                     <div className="row">
                       <h4>
                         <span id="badge" className="badge badge-pill badge-warning m-2">
-                          Waiting for other players to Vote!
+                          等待其他玩家投票选取卡牌!
                         </span>
                       </h4>
                     </div> : null
@@ -636,7 +636,7 @@ class MyGame extends Component {
                       <div className = "col-7">
                         <h4>
                           <span id="badge" className="badge badge-pill badge-warning m-2">
-                           Please vote for a card in POOL!
+                           请在卡牌池中投票选取你认为正确的卡牌!
                           </span>
                         </h4>
                       </div>
@@ -644,7 +644,7 @@ class MyGame extends Component {
                         {pickCard}
                       </div>
                       <div className ="col-2">
-                        <button type="button" className="btn btn-danger" id = "voteCard" onClick = {this.onSubmit}>Vote</button> 
+                        <button type="button" className="btn btn-danger" id = "voteCard" onClick = {this.onSubmit}>投票</button> 
                       </div>
                     </div> : null
                   }
@@ -669,7 +669,7 @@ class MyGame extends Component {
                       (<div className="row">
                         <h4>
                           <span id="badge" className="badge badge-pill badge-warning m-2">
-                          Waiting for "{this.state.players[this.state.hostIdx]}" to pick a card and describe...
+                          等待 "{this.state.players[this.state.hostIdx]}" 选择一张卡牌并对其进行描述...
                           </span>
                         </h4>
                       </div>)
@@ -678,7 +678,7 @@ class MyGame extends Component {
                         {this.state.stage === 2 ?
                           <h4>
                             <span id="badge" className="badge badge-pill badge-warning m-2">
-                            Waiting for { this.state.players.length - this.state.cardsOnDesk.length} player(s) to pick card!
+                            等待其他 { this.state.players.length - this.state.cardsOnDesk.length} 名玩家选取卡牌!
                             </span> </h4>: null}
                       </div>       
                       )
@@ -687,14 +687,14 @@ class MyGame extends Component {
             </div>
             <div className = "row hand">
               <div className = "col-12">
-                <h2 className="row"> Cards In Hand </h2>
+                <h2 className="row"> 我手中的牌 </h2>
               </div>
               <div className = "col-4">
                 <div>{(this.state.stage === 2 && !this.state.isHost && this.state.pickCount===0 ? 
                   (<div className="row">
                     <h4>
                       <span id="badge" className="badge badge-pill badge-warning m-2">
-                      Please pick a card from your HAND!
+                      请在手中的卡牌中选择1张!
                       </span>
                     </h4>
                   </div>)
@@ -712,10 +712,10 @@ class MyGame extends Component {
                             aria-describedby="description"
                             value={this.state.description}
                             onChange={this.onChange}
-                            placeholder="Enter Description..."
+                            placeholder="输入描述文字..."
                           />
                           <small id="detail" className="form-text text-muted">
-                            Tips: You get points when at least ONE but not ALL players guess right
+                            提示：当至少有1个人猜中但又不是所有人都猜中时，你获得胜利积分
                           </small>
                         </div>
                       </form>
@@ -727,17 +727,17 @@ class MyGame extends Component {
                 
               </div>
               <div className = "col-3">
-                {this.state.stage === 0 && this.state.readyCount === 0? (<button type="button" className="btn btn-danger" id = "readyToStart" onClick = {this.onSubmit.bind(this)}>Ready!</button>):
+                {this.state.stage === 0 && this.state.readyCount === 0? (<button type="button" className="btn btn-danger" id = "readyToStart" onClick = {this.onSubmit.bind(this)}>准备!</button>):
                   <div className="row" >
                     {(this.state.isHost && this.state.stage === 1) || (!this.state.isHost && this.state.stage == 2)? pickCard :null}
                   </div>}
               </div>
               <div className = "col-3">
-                {this.state.stage === 0 || this.state.stage == 5 ? <button type="button" className="btn btn-dark" id = "exitGame" onClick = {this.onSubmit}>Exit</button>: null}
-                {this.state.stage === 1 && this.state.isHost ? <button type="submit" className="btn btn-danger" id="descriptionDone" onClick={this.onSubmit} > Submit </button>:null}
-                {this.state.stage === 2 && !this.state.isHost && this.state.pickCount === 0? <button type="button" className="btn btn-danger" id = "pickCard" onClick = {this.onSubmit}>Pick</button> : null}
-                {(this.state.stage === 4 && this.state.hostIdx < this.state.players.length - 1) ? <button type="button" className="btn btn-outline-dark" id = "readyToStart" onClick = {this.onSubmit}>Next Round</button>: null}     
-                {(this.state.stage === 4 && this.state.hostIdx == this.state.players.length - 1) ? <button type="button" className="btn btn-outline-dark" id = "readyToStart" onClick = {this.onSubmit}>Next</button>: null}     
+                {this.state.stage === 0 || this.state.stage == 5 ? <button type="button" className="btn btn-dark" id = "exitGame" onClick = {this.onSubmit}>退出</button>: null}
+                {this.state.stage === 1 && this.state.isHost ? <button type="submit" className="btn btn-danger" id="descriptionDone" onClick={this.onSubmit} > 提交 </button>:null}
+                {this.state.stage === 2 && !this.state.isHost && this.state.pickCount === 0? <button type="button" className="btn btn-danger" id = "pickCard" onClick = {this.onSubmit}>确认选取</button> : null}
+                {(this.state.stage === 4 && this.state.hostIdx < this.state.players.length - 1) ? <button type="button" className="btn btn-outline-dark" id = "readyToStart" onClick = {this.onSubmit}>下一轮</button>: null}     
+                {(this.state.stage === 4 && this.state.hostIdx == this.state.players.length - 1) ? <button type="button" className="btn btn-outline-dark" id = "readyToStart" onClick = {this.onSubmit}>下一轮</button>: null}     
               </div>
             </div>
             {!this.state.cardsOnHand || this.state.cardsOnHand.length === 0 || this.state.stage == 0? null 

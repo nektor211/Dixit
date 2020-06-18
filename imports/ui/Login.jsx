@@ -71,7 +71,7 @@ class Login extends Component {
         <div className="d-flex justify-content-center h-100">
           <div className="card loginCard">
             <div className="card-header">
-              <br/><h3>Sign In</h3>
+              <br/><h3>用户登录</h3>
             </div>
             <div className="card-body">
               <form>
@@ -88,14 +88,14 @@ class Login extends Component {
                   <input id="password" type="password" autoComplete="current-password" className="form-control" placeholder="password" required onChange = {this.onChange.bind(this)}/>
                 </div>
                 <div className="form-group">
-                  <button className="btn float-right login_btn" id="login" onClick={this.onSubmit.bind(this)} >Login</button>
+                  <button className="btn float-right login_btn" id="login" onClick={this.onSubmit.bind(this)} >登录</button>
                 </div>
               </form>
             </div>
             <div className="card-footer">
               <div className="justify-content-center row">
-                <div className = "col-6"> <button className="btn btn-primary btn-inline-block twitterLogin" type="button" onClick={this.onSubmit.bind(this)} id= "twitterSignIn" ><i className="fab social_icon fa-twitter"></i> Sign in</button></div>
-                <div className = "col-6">  <Link to="/register" className="links"><button className="btn btn-danger btn-inline-block newSignup links" type="button"><i className="fas fa-user-plus"></i> Sign up</button></Link></div>
+                <div className = "col-6"> <button className="btn btn-primary btn-inline-block twitterLogin" type="button" onClick={this.onSubmit.bind(this)} id= "twitterSignIn" ><i className="fab social_icon fa-twitter"></i> Twitter</button></div>
+                <div className = "col-6">  <Link to="/register" className="links"><button className="btn btn-danger btn-inline-block newSignup links" type="button"><i className="fas fa-user-plus"></i> 注册</button></Link></div>
               </div>
             </div>
           </div>

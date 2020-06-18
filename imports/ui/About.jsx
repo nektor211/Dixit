@@ -58,7 +58,7 @@ class About extends Component {
               <div className="Play">
                 <h2>
                   <span id="badge" className="badge badge-pill badge-warning">
-                   Sign in & Play!
+                   注册并游玩吧！
                   </span>
                 </h2>
                 <p></p>

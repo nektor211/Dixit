@@ -184,15 +184,15 @@ class GameRoom extends Component {
       <div className = "container gameroom">
         <div className="row part rooms">
           <div className = "col-3">
-            <h1>GameRoom</h1>
+            <h1>游戏大厅</h1>
           </div>
           <div className = "col-5">
           </div>
           <div className = "col-4 addNewBtn">
-            <button type="button" className= "btn inline-btn btn-danger my-2 my-sm-0 " data-toggle="modal" data-target="#myModal" id="createRoom" onClick={this.onClick.bind(this)}>Add Game</button>
+            <button type="button" className= "btn inline-btn btn-danger my-2 my-sm-0 " data-toggle="modal" data-target="#myModal" id="createRoom" onClick={this.onClick.bind(this)}>创建房间</button>
           </div>
           <div className = "col-12">
-            <h6 className="form-inline" id="accessCodeLabel"><input className="form-control form-inline mr-xs-2" type="search" placeholder="5 digit accessCode" aria-label="Search" id="search" value={this.state.search} onChange={this.updateSearch}></input>* If you have one</h6>
+            <h6 className="form-inline" id="accessCodeLabel"><input className="form-control form-inline mr-xs-2" type="search" placeholder="5位房间号" aria-label="Search" id="search" value={this.state.search} onChange={this.updateSearch}></input>* 如果你有的话</h6>
           </div>
         </div>
 
@@ -201,27 +201,27 @@ class GameRoom extends Component {
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
-                  <h4 className="modal-title">Start a new Game?</h4>
+                  <h4 className="modal-title">创建一个新的游戏房间?</h4>
                   <button type="button" className="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div className="modal-body">
                   <form id="newItemForm">
                     <div className = "form-group">
-                      <label>Game Name</label>
+                      <label>房间名称（支持中文）</label>
                       <input type="text" className="form-control" id="newGameName" onChange= {this.onChange.bind(this)}/>
                     </div>
                     <div className = "form-group">
-                      <label>Number Of Players (3~6)</label>
+                      <label>游玩人数 (3~6)</label>
                       <input type="text" className="form-control" id="numberOfPlayers" onChange= {this.onChange.bind(this)}/>
                     </div>
                     {this.state.twitterLinked ? <div className="form-check">
                       <input type="checkbox" className="form-check-input" id="private" onClick={this.onClick.bind(this)}/>
-                      <label className="form-check-label">private room?</label>
+                      <label className="form-check-label">私人房间?</label>
                     </div> :
                       <div className="form-check">
                         <input type="checkbox" className="form-check-input" disabled/>
-                        <label className="form-check-label">private room?</label>
-                        <p> Please sign in with Twitter to get this advanced feature </p>
+                        <label className="form-check-label">私人房间?</label>
+                        <p> 私人房间功能喵喵还没有调好那 </p>
                       </div>}
                     <div> 
                       {this.state.privateRoom ? inviteTwitterFriends :null}
@@ -229,7 +229,7 @@ class GameRoom extends Component {
                   </form>
                 </div>
                 <div className="modal-footer d-flex justify-content-center">
-                  {this.state.privateRoom == false || this.state.twitterLinked ? <button className="btn btn-danger" data-dismiss="modal" id="newGame" onClick={this.onSubmit}>Start</button>:<button className="btn btn-danger" data-dismiss="modal" id="newGame" onClick={this.onSubmit} disabled>Start</button>}
+                  {this.state.privateRoom == false || this.state.twitterLinked ? <button className="btn btn-danger" data-dismiss="modal" id="newGame" onClick={this.onSubmit}>创建</button>:<button className="btn btn-danger" data-dismiss="modal" id="newGame" onClick={this.onSubmit} disabled>Start</button>}
                 </div>
               </div>
             </div>
@@ -248,8 +248,8 @@ class GameRoom extends Component {
                       {game.players.map(player => (<span className="player" key ={player}> {player.length < 6 ? player : player.substring(0,5).concat("..")}    </span>))}
                     </p>
                   </div>
-                  {game.okToJoin === true ? <div className="gameRoomBtn"><button type="button" className="btn btn-outline-dark" id="joinGame" name={game.name} onClick = {this.onSubmit.bind(this)}>JoinUs</button></div>
-                    : <div> {game.isOver === true ?  <div className="gameRoomBtn"><button type="button" className="btn btn-outline-secondary" disabled>GameOver</button></div> :
+                  {game.okToJoin === true ? <div className="gameRoomBtn"><button type="button" className="btn btn-outline-dark" id="joinGame" name={game.name} onClick = {this.onSubmit.bind(this)}>加入房间</button></div>
+                    : <div> {game.isOver === true ?  <div className="gameRoomBtn"><button type="button" className="btn btn-outline-secondary" disabled>游戏结束</button></div> :
                       <div className="gameRoomBtn"><button type="button" className="btn btn-outline-secondary" disabled>InGame</button></div>}</div>}
                 </div>
               </div> 

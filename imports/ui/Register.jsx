@@ -69,7 +69,7 @@ class Register extends Component {
         <div className="d-flex justify-content-center h-100">
           <div className="card loginCard">
             <div className="card-header">
-              <br/><h3>Sign up & Play!</h3>
+              <br/><h3>注册账号</h3>
             </div>
             <div className="card-body">
               <form>
@@ -77,23 +77,23 @@ class Register extends Component {
                   <div className="input-group-prepend">
                     <span className="input-group-text"><i className="fas fa-user-plus"></i></span>
                   </div>
-                  <input id= "username" type="text" autoComplete="username" className="form-control" placeholder="username" onChange = {this.onChange.bind(this)}/>
+                  <input id= "username" type="text" autoComplete="username" className="form-control" placeholder="用户名/昵称（支持中文）" onChange = {this.onChange.bind(this)}/>
                 </div>
                 <div className="input-group form-group">
                   <div className="input-group-prepend">
                     <span className="input-group-text"><i className="fas fa-key"></i></span>
                   </div>
-                  <input id="password" type="password" autoComplete="current-password" className="form-control" placeholder="password" required onChange = {this.onChange.bind(this)}/>
+                  <input id="password" type="password" autoComplete="current-password" className="form-control" placeholder="密码" required onChange = {this.onChange.bind(this)}/>
                 </div>
                 <div className="input-group form-group">
                   <div className="input-group-prepend">
                     <span className="input-group-text"><i className="fas fa-key"></i></span>
                   </div>
-                  <input id="password2" type="password" autoComplete="current-password" className="form-control" placeholder="confirm password" required onChange = {this.onChange.bind(this)}/>
+                  <input id="password2" type="password" autoComplete="current-password" className="form-control" placeholder="密码确认" required onChange = {this.onChange.bind(this)}/>
                 </div>
                 <div className="card-footer">
                   <div className="form-group">
-                    <button className="btn float-right login_btn" id="register" onClick={this.onSubmit.bind(this)}>Register</button>
+                    <button className="btn float-right login_btn" id="register" onClick={this.onSubmit.bind(this)}>注册</button>
                   </div>
                 </div>
               </form>
